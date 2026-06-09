@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import LoginContent from './login-content';
 
 export const metadata: Metadata = {
-    title: 'Login | Ukrainian Food',
-    description: 'Sign in to share your favorite Ukrainian meals.',
+    title: 'Login | Dishes Around the World',
+    description: 'Sign in to share your favorite meals from around the world.',
 };
 
 export default function LoginPage() {

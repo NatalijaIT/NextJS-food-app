@@ -39,7 +39,7 @@ export default function MealItem({ title, slug, image, summary, creator, creator
         <article className={classes.meal} aria-label={title} aria-busy={deleteMeal.isPending}>
             <header>
                 <div className={classes.image}>
-                    <Image src={`https://natalievirt-nextjs-users-image.s3.ap-southeast-2.amazonaws.com/${image}`} alt={title} fill />
+                    <Image src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${image}`} alt={title} fill />
                 </div>
                 <div className={classes.headerText}>
                     <h2>{title}</h2>

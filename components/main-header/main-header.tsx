@@ -13,7 +13,7 @@ export default function MainHeader() {
             <header className={styles.header}>
                 <Link href="/" className={styles.logo}>
                     <Image src={logoImg} alt="Main logo" priority />
-                    Ukrainian Food
+                    Dishes Around the World
                 </Link>
                 <nav className={styles.nav} aria-label="Main navigation">
                     <AuthStatus />

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Meal } from '@/types/meal';
 import classes from './image-slideshow.module.css';
 
-const S3_BASE_URL = 'https://natalievirt-nextjs-users-image.s3.ap-southeast-2.amazonaws.com';
+const S3_BASE_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL ?? '';
 
 export default function ImageSlideshow({ meals }: { meals: Meal[] }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);

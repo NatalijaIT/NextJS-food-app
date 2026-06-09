@@ -53,7 +53,7 @@ export default function MealDetailsContent() {
             <header className={styles.header}>
                 <div className={styles.image}>
                     <Image
-                        src={`https://natalievirt-nextjs-users-image.s3.ap-southeast-2.amazonaws.com/${meal.image}`}
+                        src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${meal.image}`}
                         alt={meal.title}
                         fill
                     />

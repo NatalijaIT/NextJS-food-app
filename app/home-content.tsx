@@ -16,7 +16,7 @@ export default function HomeContent() {
         </div>
         <div>
           <div className={classes.hero}>
-            <h1>Ukrainian food</h1>
+            <h1>Dishes Around the World</h1>
             <p>Taste and share food from all over the world.</p>
           </div>
           <div className={classes.cta}>
@@ -26,15 +26,11 @@ export default function HomeContent() {
       </header>
       <main id="main-content">
         <section className={classes.section}>
-          <h2>Why Ukrainian Food?</h2>
+          <h2>Why Dishes Around the World?</h2>
           <p>
-            Ukrainian Food is a platform to share their favorite
-            recipes with the world. It&apos;s a place to discover dishes, and to
-            connect with other food lovers.
-          </p>
-          <p>
-            Ukrainian Food is a place to discover dishes, and to connect
-            with other food lovers.
+            Dishes Around the World is built on the idea that food connects people.
+            It&apos;s a place where users can share their favorite recipes, discover new cultures through cuisine,
+            and feel part of a global community.
           </p>
         </section>
       </main>

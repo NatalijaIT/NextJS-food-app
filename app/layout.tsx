@@ -4,7 +4,7 @@ import { Providers } from './providers';
 import './globals.css';
 
 export const metadata = {
-  title: 'Ukrainian Food',
+  title: 'Dishes Around the World',
   description: 'Delicious meals, shared by a food-loving community.',
 };
 

@@ -12,12 +12,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!meal) {
         return {
-            title: 'Meal Not Found | Ukrainian Food',
+            title: 'Meal Not Found | Dishes Around the World',
         };
     }
 
     return {
-        title: `${meal.title} | Ukrainian Food`,
+        title: `${meal.title} | Dishes Around the World`,
         description: meal.summary,
     };
 }
