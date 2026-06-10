@@ -46,12 +46,12 @@ export default function LoginContent() {
 
     return (
         <>
-            <header className={classes.header}>
+            <div className={classes.header}>
                 <h1 id="login-heading">
                     <span className={classes.highlight}>Login</span>
                 </h1>
                 <p>Sign in to share your favorite meals.</p>
-            </header>
+            </div>
             <main id="main-content" className={classes.main}>
                 <form
                     className={classes.form}

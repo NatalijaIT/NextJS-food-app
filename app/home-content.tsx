@@ -10,7 +10,7 @@ export default function HomeContent() {
 
   return (
     <>
-      <header className={classes.header}>
+      <div className={classes.header}>
         <div className={classes.slideshow}>
           {isLoading ? <Loader /> : <ImageSlideshow meals={meals ?? []} />}
         </div>
@@ -23,7 +23,7 @@ export default function HomeContent() {
             <Link href="/meals">Explore Meals</Link>
           </div>
         </div>
-      </header>
+      </div>
       <main id="main-content">
         <section className={classes.section}>
           <h2>Why Dishes Around the World?</h2>

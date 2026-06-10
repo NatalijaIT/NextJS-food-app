@@ -1,5 +1,5 @@
 .header {
-    margin: clamp(2rem, 8vw, 7rem) auto clamp(1.5rem, 5vw, 5rem);
+    margin: clamp(4rem, 10vw, 9rem) auto clamp(1.5rem, 5vw, 5rem) clamp(1rem, 5vw, 10%);
     width: 90%;
     max-width: 75rem;
     color: #fff;
@@ -8,6 +8,7 @@
 
 .header h1 {
     font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
 .highlight {

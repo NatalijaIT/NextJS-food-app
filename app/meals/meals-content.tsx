@@ -11,7 +11,7 @@ export default function MealsContent() {
 
     return (
         <>
-            <header className={classes.header}>
+            <div className={classes.header}>
                 <h1>
                     Delicious meals, created,{' '}
                     <span className={classes.highlight}>by you</span>
@@ -20,7 +20,7 @@ export default function MealsContent() {
                 <p className={classes.cta}>
                     <Link href="/meals/share">Share your favourite recipe</Link>
                 </p>
-            </header>
+            </div>
             <main id="main-content" className={classes.main}>
                 {isLoading && <Loader message="Fetching meals..." />}
                 {error && <p className={classes.error} role="alert">Failed to load meals.</p>}

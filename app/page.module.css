@@ -1,24 +1,25 @@
 .header {
     display: flex;
+    align-items: center;
     gap: clamp(1rem, 4vw, 3rem);
-    margin: clamp(1.5rem, 4vw, 3rem) auto;
+    margin: clamp(4rem, 10vw, 9rem) auto clamp(0.5rem, 1.5vw, 1rem);
     width: 90%;
     max-width: 75rem;
 }
 
 .slideshow {
-    width: clamp(18rem, 45%, 40rem);
-    height: clamp(12rem, 28vw, 25rem);
+    width: clamp(18rem, 45%, 42rem);
+    height: clamp(12rem, 28vw, 26rem);
     flex-shrink: 0;
 }
 
 .hero {
     color: #fff;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.85rem, 2vw, 1.2rem);
 }
 
 .hero h1 {
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-size: clamp(1rem, 3vw, 1.6rem);
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: clamp(0rem, 0.5vw, 0.15rem);
@@ -28,7 +29,7 @@
 }
 
 .cta {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.85rem, 2vw, 1.2rem);
     display: flex;
     gap: 1rem;
 }
@@ -53,8 +54,8 @@
     background: linear-gradient(90deg, #f9572a, #ff9b05);
     font-weight: bold;
     color: #fff;
-    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 2rem);
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    padding: clamp(0.35rem, 1vw, 0.55rem) clamp(0.75rem, 2vw, 1.5rem);
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
     letter-spacing: 0.05rem;
     text-transform: uppercase;
     box-shadow: 0 0 18px rgba(249, 87, 42, 0.5);

@@ -50,7 +50,7 @@ export default function MealDetailsContent() {
                     Back to meals
                 </Link>
             </div>
-            <header className={styles.header}>
+            <div className={styles.header}>
                 <div className={styles.image}>
                     <Image
                         src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${meal.image}`}
@@ -65,7 +65,7 @@ export default function MealDetailsContent() {
                     </p>
                     <p className={styles.summary}>{meal.summary}</p>
                 </div>
-            </header>
+            </div>
             <main id="main-content">
                 <h2 className={styles.srOnly}>Instructions</h2>
                 <p className={styles.instructions} dangerouslySetInnerHTML={{

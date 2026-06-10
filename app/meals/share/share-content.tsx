@@ -96,7 +96,7 @@ export default function ShareContent({ meal }: ShareContentProps) {
                     {isEditMode ? 'Back to meal' : 'Back to meals'}
                 </Link>
             </div>
-            <header className={classes.header}>
+            <div className={classes.header}>
                 <h1 id="form-heading">
                     {isEditMode
                         ? <>Edit <span className={classes.highlight}>{meal.title}</span></>
@@ -104,7 +104,7 @@ export default function ShareContent({ meal }: ShareContentProps) {
                     }
                 </h1>
                 {!isEditMode && <p>Or any other meal you feel needs sharing!</p>}
-            </header>
+            </div>
             <main id="main-content" className={classes.main}>
                 <form className={classes.form} onSubmit={handleSubmit(onSubmit)} aria-labelledby="form-heading" noValidate>
                     {!isEditMode && (

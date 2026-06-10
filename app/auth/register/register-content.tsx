@@ -53,12 +53,12 @@ export default function RegisterContent() {
 
     return (
         <>
-            <header className={classes.header}>
+            <div className={classes.header}>
                 <h1 id="register-heading">
                     <span className={classes.highlight}>Register</span>
                 </h1>
                 <p>Create an account to share your favorite meals.</p>
-            </header>
+            </div>
             <main id="main-content" className={classes.main}>
                 <form
                     className={classes.form}
