@@ -18,7 +18,6 @@ export default function AuthStatus() {
     if (session?.user) {
         return (
             <div className={styles.authStatus}>
-                <span className={styles.userName}>{`Welcome, ${session.user.name}!`}</span>
                 <button
                     className={styles.signOutBtn}
                     onClick={() => signOut({ callbackUrl: '/' })}

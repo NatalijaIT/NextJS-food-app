@@ -2,9 +2,16 @@
     width: 90%;
     max-width: 90rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    grid-gap: 5rem;
-    margin: 2rem auto;
+    grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+    gap: clamp(1.5rem, 4vw, 5rem);
+    margin: clamp(1rem, 3vw, 2rem) auto;
     list-style: none;
     padding: 0;
+}
+
+@media (max-width: 500px) {
+    .meals {
+        width: 95%;
+        grid-template-columns: 1fr;
+    }
 }

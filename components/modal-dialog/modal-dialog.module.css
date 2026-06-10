@@ -14,3 +14,10 @@
     border: none;
     color: #f9572a;
 }
+
+@media (max-width: 480px) {
+    .mainContent {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}

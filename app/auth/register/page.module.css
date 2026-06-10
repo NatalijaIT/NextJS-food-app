@@ -1,10 +1,9 @@
 .header {
-    gap: 3rem;
-    margin: 7rem auto 3rem auto;
+    margin: clamp(2rem, 8vw, 7rem) auto clamp(1rem, 3vw, 3rem);
     width: 90%;
     max-width: 75rem;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .header h1 {
@@ -21,7 +20,7 @@
 .main {
     width: 90%;
     max-width: 75rem;
-    margin: 2rem auto;
+    margin: clamp(1rem, 3vw, 2rem) auto;
     color: white;
 }
 
@@ -44,7 +43,7 @@
     padding: 0.5rem 1rem;
     border-radius: 4px;
     border: 1px solid #454952;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -76,7 +75,7 @@
     border-radius: 2px;
     cursor: pointer;
     font: inherit;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -112,4 +111,18 @@
 
 .switchLink a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .form {
+        max-width: 100%;
+    }
+
+    .actions {
+        text-align: center;
+    }
+
+    .actions button {
+        width: 100%;
+    }
 }

@@ -1,6 +1,6 @@
-# Ukrainian Food
+# Dishes Around the World
 
-A full-stack Next.js 16 application for sharing and discovering Ukrainian meal recipes. Users can register, log in, browse meals, share their own recipes with images, and edit or delete recipes they created.
+A full-stack Next.js 16 application for sharing and discovering meal recipes from around the world. Users can register, log in, browse meals, share their own recipes with images, and edit or delete recipes they created.
 
 ## Features
 
@@ -26,7 +26,7 @@ A full-stack Next.js 16 application for sharing and discovering Ukrainian meal r
 | State / Data fetching | TanStack Query v5 |
 | Forms | React Hook Form v7 |
 | Database | MongoDB 7 |
-| Image storage | AWS S3 |
+| Image storage | Cloudflare R2 |
 | Password hashing | bcryptjs |
 | XSS sanitization | xss |
 | URL slugs | slugify |
@@ -38,7 +38,7 @@ A full-stack Next.js 16 application for sharing and discovering Ukrainian meal r
 
 - Node.js 18+
 - MongoDB instance (local or Atlas)
-- AWS account with an S3 bucket
+- Cloudflare account with an R2 bucket and a public R2.dev subdomain (or custom domain) enabled
 
 ### Installation
 
@@ -56,15 +56,18 @@ Create a `.env.local` file in the root:
 # MongoDB
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>
 
-# AWS S3
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+# Cloudflare R2 — create an API token at R2 → Manage R2 API Tokens
+CLOUDFLARE_R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
+CLOUDFLARE_R2_BUCKET_NAME=<bucket-name>
+CLOUDFLARE_R2_ACCESS_KEY_ID=your_r2_access_key_id
+CLOUDFLARE_R2_SECRET_ACCESS_KEY=your_r2_secret_access_key
+
+# Public URL — enable R2.dev subdomain (or custom domain) in the bucket Settings tab
+NEXT_PUBLIC_R2_PUBLIC_URL=https://pub-<token>.r2.dev
 
 # Auth.js — generate with: openssl rand -base64 32
 AUTH_SECRET=your_auth_secret
 ```
-
-> The S3 bucket name and region are configured in `lib/utils/s3.ts`.
 
 ### Running the App
 
@@ -89,7 +92,7 @@ API Routes (app/api/meals/, app/api/auth/)
         │
 Service Layer (lib/services/meals.service.ts, users.service.ts)
         │
-MongoDB + AWS S3
+MongoDB + Cloudflare R2
 ```
 
 Authentication sits alongside this flow — Auth.js handles session management via JWT, and the `proxy.ts` middleware protects the `/meals/share` route at the edge.
@@ -152,9 +155,9 @@ nextjs-ukr-food/
 │   │   ├── meals.ts                    # Client fetch wrappers (CRUD)
 │   │   └── auth.ts                     # Client fetch wrapper (register)
 │   ├── services/
-│   │   ├── meals.service.ts            # MongoDB meal CRUD + S3 image management
+│   │   ├── meals.service.ts            # MongoDB meal CRUD + R2 image management
 │   │   └── users.service.ts            # MongoDB user lookup, create, bcrypt verify
-│   ├── utils/s3.ts                     # S3 putObject / deleteObject helpers
+│   ├── utils/s3.ts                     # R2 putObject / deleteObject helpers
 │   └── mongodb.ts                      # Cached MongoDB connection
 │
 ├── types/
@@ -229,7 +232,7 @@ interface Meal {
     instructions: string;   // XSS-sanitized before storage
     creator: string;
     creator_email: string;
-    image: string;          // S3 object key
+    image: string;          // R2 object key
 }
 ```
 
@@ -259,9 +262,9 @@ The `PUT` and `DELETE` routes on `/api/meals/[slug]` fetch the existing meal, co
 
 1. User selects a file via `ImagePicker`; a `FileReader` generates a local preview
 2. On submit, the file is sent in `FormData` to the API route
-3. The server generates an S3 key from the meal slug and uploads via `putObject`
-4. On meal update with a new image, the old S3 object is deleted before the new one is uploaded
-5. On meal delete, the S3 object is deleted before the MongoDB document is removed
+3. The server generates an R2 object key from the meal slug and uploads via `putObject`
+4. On meal update with a new image, the old R2 object is deleted before the new one is uploaded
+5. On meal delete, the R2 object is deleted before the MongoDB document is removed
 
 ### Unsaved Changes Guard
 
@@ -297,3 +300,7 @@ The app follows WCAG 2.1 AA practices:
 - **Global styles** in `app/globals.css`
 - **Fonts**: Quicksand (body text), Montserrat (headings and labels)
 - Gradient backgrounds, CSS Grid for the meals gallery, Flexbox for layouts
+- **Fluid responsive design** — `clamp()` used throughout for font sizes, spacing, and dimensions so layout scales continuously from mobile to wide desktop without abrupt jumps
+- **Scalable SVG header** — the decorative wave background scales proportionally with the viewport via `width: 100%; height: auto` on the SVG
+- **Header nav** — Sign Out / Login / Register buttons are absolutely positioned to the right corner of the header and scale with the viewport
+- Single-column meal grid on narrow viewports via `minmax(min(20rem, 100%), 1fr)`

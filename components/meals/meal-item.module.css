@@ -106,3 +106,13 @@
     cursor: not-allowed;
     box-shadow: none;
 }
+
+@media (max-width: 768px) {
+    .image {
+        height: 12rem;
+    }
+
+    .headerText h2 {
+        font-size: 1.25rem;
+    }
+}
