@@ -1,54 +1,58 @@
 .header {
-  display: flex;
-  align-items: center;
   position: relative;
   padding: clamp(0.75rem, 2vw, 2rem) clamp(1rem, 5vw, 10%);
 }
 
-.nav {
+.inner {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  position: absolute;
-  top: 50%;
-  right: clamp(1rem, 5vw, 10%);
-  transform: translateY(-50%);
+  max-width: 75rem;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+.authArea {
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem, 2vw, 2rem);
+  gap: clamp(0.5rem, 1.5vw, 1rem);
   text-decoration: none;
-  color: #2a5298;
+  color: #4a1515;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: clamp(0rem, 0.2vw, 0.05rem);
-  text-transform: uppercase;
-  font-size: clamp(0.8rem, 2vw, 1.5rem);
-  margin-right: clamp(6rem, 14vw, 12rem);
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.logo:focus-visible {
+  outline: 2px solid #4a1515;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .logo img {
-  width: clamp(2.5rem, 5vw, 5rem);
-  height: clamp(2.5rem, 5vw, 5rem);
+  width: clamp(2.75rem, 6vw, 5rem);
+  height: clamp(2.75rem, 6vw, 5rem);
   flex-shrink: 0;
   object-fit: contain;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 }
 
-@media (max-width: 360px) {
-  .logo {
-    letter-spacing: 0;
-    font-size: 0.75rem;
+.logoText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: clamp(0rem, 0.2vw, 0.05rem);
+  text-transform: uppercase;
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 480px) {
+  .logoText {
+    display: none;
   }
 }

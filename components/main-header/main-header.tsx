@@ -11,13 +11,15 @@ export default function MainHeader() {
         <>
             <MainHeaderBackground />
             <header className={styles.header}>
-                <Link href="/" className={styles.logo}>
-                    <Image src={logoImg} alt="Main logo" priority />
-                    Dishes Around the World
-                </Link>
-                <nav className={styles.nav} aria-label="Main navigation">
-                    <AuthStatus />
-                </nav>
+                <div className={styles.inner}>
+                    <Link href="/" className={styles.logo} aria-label="Taste the World – home">
+                        <Image src={logoImg} alt="" priority />
+                        <span className={styles.logoText}>Taste the World</span>
+                    </Link>
+                    <div className={styles.authArea}>
+                        <AuthStatus />
+                    </div>
+                </div>
             </header>
         </>
     )

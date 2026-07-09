@@ -5,31 +5,37 @@
 }
 
 .userName {
-    color: #2a5298;
+    color: #4a1515;
     font-weight: bold;
     font-size: clamp(0.75rem, 1.5vw, 0.9rem);
     white-space: nowrap;
 }
 
 .signOutBtn {
-    background: linear-gradient(90deg, #2a5298, #1e3c72);
+    background: linear-gradient(90deg, #4a1515, #2d0a0a);
     border: none;
     color: #fff;
     padding: clamp(0.25rem, 0.6vw, 0.4rem) clamp(0.6rem, 1.2vw, 1rem);
+    min-height: 2.75rem;
     border-radius: 4px;
     cursor: pointer;
     font: inherit;
     font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     font-weight: bold;
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(30, 60, 114, 0.35);
+    box-shadow: 0 2px 8px rgba(74, 21, 21, 0.35);
     transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
+.signOutBtn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
 .signOutBtn:hover {
-    background: linear-gradient(90deg, #3a62a8, #2a4c82);
+    background: linear-gradient(90deg, #5a1f1f, #3d1111);
     transform: scale(1.05);
-    box-shadow: 0 4px 14px rgba(30, 60, 114, 0.55);
+    box-shadow: 0 4px 14px rgba(74, 21, 21, 0.55);
 }
 
 .signOutBtn:active {
@@ -38,8 +44,12 @@
 
 .loginLink,
 .registerLink {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding-inline: 0.25rem;
     text-decoration: none;
-    color: #2a5298;
+    color: #4a1515;
     font-weight: bold;
     font-size: clamp(0.85rem, 1.5vw, 1.1rem);
     white-space: nowrap;
@@ -48,6 +58,13 @@
 .loginLink:hover,
 .registerLink:hover {
     text-decoration: underline;
+}
+
+.loginLink:focus-visible,
+.registerLink:focus-visible {
+    outline: 2px solid #4a1515;
+    outline-offset: 3px;
+    border-radius: 2px;
 }
 
 .loading {

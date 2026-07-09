@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import HomeContent from './home-content';
 
 export const metadata: Metadata = {
-  title: 'Home | Dishes Around the World',
+  title: 'Home | Taste the World',
   description: 'Taste and share food from all over the world. Discover recipes and connect with food lovers.',
 };
 

@@ -26,7 +26,7 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #2a5298;
+    color: #4a1515;
     animation: fade-slide-in-from-left 1s ease-out forwards;
 }
 
@@ -106,7 +106,7 @@
 .instructions {
     font-size: clamp(0.95rem, 2vw, 1.25rem);
     line-height: 1.5;
-    background-color: #0A2472;
+    background-color: #2d0a0a;
     color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
@@ -131,18 +131,19 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: linear-gradient(90deg, #2a5298, #1e3c72);
-    color: #fff;
+    background: #fff;
+    color: #4a1515;
+    border: 2px solid #4a1515;
     border-radius: 4px;
     text-decoration: none;
     font: inherit;
     font-size: 0.95rem;
     font-weight: bold;
-    transition: opacity 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
 .editBtn:hover {
-    opacity: 0.85;
+    opacity: 0.75;
 }
 
 .deleteBtn {
@@ -171,27 +172,57 @@
 }
 
 @keyframes fade-slide-in-from-left {
-    0% { opacity: 0; transform: translateX(-1rem); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+        opacity: 0;
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes fade-slide-in-from-right {
-    0% { opacity: 0; transform: translateX(1rem); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+        opacity: 0;
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes fade-slide-in-from-bottom {
-    0% { opacity: 0; transform: translateY(1rem); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes flash {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .backLink,
     .header img,
     .headerText,

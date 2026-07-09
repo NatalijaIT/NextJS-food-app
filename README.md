@@ -1,4 +1,4 @@
-# Dishes Around the World
+# Taste the World
 
 A full-stack Next.js 16 application for sharing and discovering meal recipes from around the world. Users can register, log in, browse meals, share their own recipes with images, and edit or delete recipes they created.
 
@@ -13,6 +13,7 @@ A full-stack Next.js 16 application for sharing and discovering meal recipes fro
 - **Ownership enforcement** — edit/delete API routes verify the session user is the meal's creator
 - **Image slideshow** — home page hero auto-rotates real meal photos from the database
 - **Unsaved changes guard** — navigating away from a dirty form shows a confirmation dialog
+- **Footer** — brand name, site navigation (Home, Meals, Share a Meal), and copyright line
 - **Accessible** — skip link, ARIA labels, `role="alert"` on errors, `prefers-reduced-motion` support, form field validation linked to inputs
 
 ## Tech Stack
@@ -124,17 +125,20 @@ nextjs-ukr-food/
 │   │   ├── error.tsx                    # Error boundary
 │   │   └── loading-out.tsx
 │   ├── home-content.tsx                 # Home page hero + intro
-│   ├── layout.tsx                       # Root layout (skip link, Header, Providers)
+│   ├── layout.tsx                       # Root layout (skip link, Header, Footer, Providers)
 │   ├── providers.tsx                    # SessionProvider + QueryClientProvider
 │   └── not-found.tsx
 │
 ├── components/
+│   ├── footer/
+│   │   ├── footer.tsx                  # Brand, nav links, copyright
+│   │   └── footer.module.css
 │   ├── images/image-slideshow.tsx       # Auto-rotating hero slideshow
 │   ├── loader/loader.tsx                # Spinner with ARIA live region
 │   ├── main-header/
-│   │   ├── main-header.tsx
-│   │   ├── main-header-background.tsx   # Decorative SVG wave
-│   │   └── auth-status.tsx             # Login/Register links or username + Sign Out
+│   │   ├── main-header.tsx             # Logo (left) + auth controls (right)
+│   │   ├── main-header-background.tsx  # Decorative SVG wave
+│   │   └── auth-status.tsx            # Login/Register links or username + Sign Out
 │   ├── meals/
 │   │   ├── meals-grid.tsx              # Responsive card grid
 │   │   ├── meal-item.tsx               # Card with creator-only delete button
@@ -302,5 +306,6 @@ The app follows WCAG 2.1 AA practices:
 - Gradient backgrounds, CSS Grid for the meals gallery, Flexbox for layouts
 - **Fluid responsive design** — `clamp()` used throughout for font sizes, spacing, and dimensions so layout scales continuously from mobile to wide desktop without abrupt jumps
 - **Scalable SVG header** — the decorative wave background scales proportionally with the viewport via `width: 100%; height: auto` on the SVG
-- **Header nav** — Sign Out / Login / Register buttons are absolutely positioned to the right corner of the header and scale with the viewport
+- **Header layout** — logo on the left, auth controls (Login / Register / Sign Out) on the right via `margin-left: auto`
+- **Footer** — dark burgundy (`#2d0a0a`) bar with site nav links and copyright; nav link styles match the overall color scheme
 - Single-column meal grid on narrow viewports via `minmax(min(20rem, 100%), 1fr)`
